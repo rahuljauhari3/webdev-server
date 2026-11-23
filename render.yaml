@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: webdev-server
+    runtime: node
+    plan: free
+    branch: a5
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /lab5/welcome
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: SERVER_ENV
+        value: production
+      - key: CLIENT_URL
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
